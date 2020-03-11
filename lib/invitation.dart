@@ -1,4 +1,6 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:line_icons/line_icons.dart';
 import 'circular_icon_button.dart';
 import 'constants.dart';
@@ -17,6 +19,9 @@ final acceptButtonBorder = BorderSide(
 final acceptButtonIconColor = kColorBlue;
 final acceptButtonIcon = LineIcons.check;
 
+// TODO: move hardcoded value to local/shared constants
+// TODO: check widgets below that can be shared across and extract it into a reusable widgets
+// TODO: add arguments to make this widget flexible
 class Invitation extends StatelessWidget {
   final Function onCancel;
   final Function onAccept;
@@ -27,21 +32,93 @@ class Invitation extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: kRowContainerPadding,
-      height: 100.0,
       child: Row(
         children: <Widget>[
-          CircularIconButton(
-            side: cancelButtonBorder,
-            icon: cancelButtonIcon,
-            iconColor: cancelButtonIconColor,
-            onPressed: onCancel,
+          Expanded(
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                CircleAvatar(
+                  radius: 30,
+                  backgroundImage: NetworkImage(
+                      'https://media-exp1.licdn.com/dms/image/C5103AQHnL59dt7LpKg/profile-displayphoto-shrink_100_100/0?e=1589414400&v=beta&t=tFlaud-szBMMeO70p8T43BI4fHpzjs0_PTbesrTEYaM'),
+                ),
+                SizedBox(
+                  width: 16.0,
+                ),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Text(
+                        'Martin Llaneza',
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      SizedBox(
+                        height: 5.0,
+                      ),
+                      Text(
+                        'Software Consultant',
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                      SizedBox(
+                        height: 5.0,
+                      ),
+                      Row(
+                        children: <Widget>[
+                          Container(
+                            width: 20.0,
+                            child: Stack(
+                              children: <Widget>[
+                                Icon(
+                                  FontAwesomeIcons.circle,
+                                  size: 10.0,
+                                ),
+                                Positioned(
+                                  left: 7.0,
+                                  child: Icon(
+                                    FontAwesomeIcons.circle,
+                                    size: 10.0,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          Text('19 mutual connections'),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
           ),
-          CircularIconButton(
-            side: acceptButtonBorder,
-            icon: acceptButtonIcon,
-            iconColor: acceptButtonIconColor,
-            onPressed: onAccept,
-          ),
+          SizedBox(width: 15.0,),
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: <Widget>[
+              CircularIconButton(
+                side: cancelButtonBorder,
+                icon: cancelButtonIcon,
+                iconColor: cancelButtonIconColor,
+                onPressed: onCancel,
+              ),
+              SizedBox(
+                width: 5.0,
+              ),
+              CircularIconButton(
+                side: acceptButtonBorder,
+                icon: acceptButtonIcon,
+                iconColor: acceptButtonIconColor,
+                onPressed: onAccept,
+              ),
+            ],
+          )
         ],
       ),
     );

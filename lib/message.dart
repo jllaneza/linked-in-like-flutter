@@ -16,7 +16,7 @@ class Message extends StatelessWidget {
           CircleAvatar(
             radius: _avatarRadius,
             backgroundImage: NetworkImage(
-                'https://www.rd.com/wp-content/uploads/2017/09/01-shutterstock_476340928-Irina-Bg-1024x683.jpg'),
+                'https://media-exp1.licdn.com/dms/image/C5103AQHnL59dt7LpKg/profile-displayphoto-shrink_100_100/0?e=1589414400&v=beta&t=tFlaud-szBMMeO70p8T43BI4fHpzjs0_PTbesrTEYaM'),
           ),
           SizedBox(
             width: 16.0,
@@ -28,14 +28,14 @@ class Message extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: <Widget>[
                     Text(
-                      'Name',
+                      'John Doe',
                       style: TextStyle(
                         fontSize: 16.0,
                       ),
                     ),
                     Expanded(
                       child: Text(
-                        'Date',
+                        'Mar 11',
                         textAlign: TextAlign.right,
                         style: TextStyle(
                           fontSize: 12.0,
