@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:line_icons/line_icons.dart';
 import 'circular_icon_button.dart';
-import 'constants.dart';
+import '../constants.dart';
+import 'mutual_connections.dart';
 
 const iconButtonBorderWidth = 1.0;
 final cancelButtonBorder = BorderSide(
@@ -69,28 +69,9 @@ class Invitation extends StatelessWidget {
                       SizedBox(
                         height: 5.0,
                       ),
-                      Row(
-                        children: <Widget>[
-                          Container(
-                            width: 20.0,
-                            child: Stack(
-                              children: <Widget>[
-                                Icon(
-                                  FontAwesomeIcons.circle,
-                                  size: 10.0,
-                                ),
-                                Positioned(
-                                  left: 7.0,
-                                  child: Icon(
-                                    FontAwesomeIcons.circle,
-                                    size: 10.0,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                          Text('19 mutual connections'),
-                        ],
+                      MutualConnections(
+                        connections: 19,
+                        maxLines: 2,
                       ),
                     ],
                   ),
@@ -98,7 +79,9 @@ class Invitation extends StatelessWidget {
               ],
             ),
           ),
-          SizedBox(width: 15.0,),
+          SizedBox(
+            width: 15.0,
+          ),
           Row(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[

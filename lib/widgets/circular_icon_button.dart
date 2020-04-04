@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'constants.dart';
+import '../constants.dart';
 
 class CircularIconButton extends StatelessWidget {
   final IconData icon;
   final Color iconColor;
-  final double radius;
+  final double diameter;
   final BorderSide side;
   final Function onPressed;
 
@@ -13,7 +13,7 @@ class CircularIconButton extends StatelessWidget {
     this.onPressed,
     this.side = BorderSide.none,
     this.iconColor = kColorBlue,
-    this.radius = 45.0,
+    this.diameter = 45.0,
   });
 
   @override
@@ -24,8 +24,8 @@ class CircularIconButton extends StatelessWidget {
         side: side,
       ),
       constraints: BoxConstraints.tightFor(
-        width: radius,
-        height: radius,
+        width: diameter,
+        height: diameter,
       ),
       child: Icon(
         icon,

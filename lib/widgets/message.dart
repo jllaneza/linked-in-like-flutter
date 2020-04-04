@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'constants.dart';
+import '../constants.dart';
 
 const _containerHeight = 75.0;
 const _avatarRadius = 30.0;
